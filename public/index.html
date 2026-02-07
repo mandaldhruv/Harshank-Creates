@@ -104,43 +104,166 @@
         #heroCarousel {
             transition: filter 0.8s ease-in-out;
         }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 8, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 40;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            overflow-y: auto;
+            padding-top: 80px;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-item {
+            display: block;
+            padding: 16px 24px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-menu-item:hover,
+        .mobile-menu-item:focus {
+            color: #d4af35;
+            outline: none;
+        }
+
+        .menu-toggle {
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .menu-toggle.active span {
+            background: transparent !important;
+        }
+
+        .menu-toggle.active span:first-child {
+            transform: rotate(45deg) translate(8px, 8px);
+            display: block;
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:last-child {
+            transform: rotate(-45deg) translate(7px, -7px);
+            display: block;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: currentColor;
+            transition: all 0.3s ease;
+            display: block;
+            border-radius: 2px;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 640px) {
+            body {
+                font-size: 14px;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            h2 {
+                font-size: 1.75rem !important;
+            }
+        }
+
+        /* Tablet Optimizations */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .glass-nav {
+                padding: 12px 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-gray-100 overflow-x-hidden antialiased selection:bg-primary selection:text-white">
 
     <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="w-full glass-nav">
-            <div class="max-w-[1600px] mx-auto px-6 py-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 flex items-center justify-center text-primary">
-                        <span class="material-symbols-outlined text-3xl">camera</span>
+            <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <div class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-primary flex-shrink-0">
+                        <span class="material-symbols-outlined text-2xl sm:text-3xl">camera</span>
                     </div>
-                    <a class="font-serif font-bold text-xl tracking-wide text-white hover:text-primary transition-colors duration-300" href="#">
-                        Harshank Creates
+                    <a class="font-serif font-bold text-base sm:text-xl tracking-wide text-white hover:text-primary transition-colors duration-300" href="#">
+                        <span class="hidden xs:inline">Harshank Creates</span>
+                        <span class="xs:hidden">Harshank Creates</span>
                     </a>
                 </div>
 
-                <div class="hidden md:flex items-center gap-8">
-                    <a class="text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#hero">Home</a>
-                    <a class="text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#about">About</a>
-                    <a class="text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#services">Services</a>
-                    <a class="text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#portfolio">Portfolio</a>
-                    <a class="text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#contact">Contact</a>
+                <div class="hidden md:flex items-center gap-6 lg:gap-8">
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#hero">Home</a>
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#about">About</a>
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#services">Services</a>
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#portfolio">Portfolio</a>
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#contact">Contact</a>
                 </div>
 
-                <div class="flex items-center gap-4">
-                    <a href="#contact" class="hidden md:flex group relative h-10 items-center justify-center overflow-hidden rounded-full border border-primary/30 bg-primary/10 px-6 text-xs font-bold uppercase tracking-widest text-primary transition-all hover:bg-primary hover:text-background-dark">
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <a href="#contact" class="hidden md:flex group relative h-9 sm:h-10 items-center justify-center overflow-hidden rounded-full border border-primary/30 bg-primary/10 px-4 sm:px-6 text-xs font-bold uppercase tracking-widest text-primary transition-all hover:bg-primary hover:text-background-dark">
                         <span class="relative z-10">Book Now</span>
                     </a>
-                    <div class="md:hidden text-white cursor-pointer hover:text-primary transition-colors">
-                        <span class="material-symbols-outlined">menu</span>
-                    </div>
+                    <button id="menuToggle" class="md:hidden text-white hover:text-primary transition-colors p-2 menu-toggle" aria-label="Toggle menu">
+                        <div class="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
-    <section id="hero" class="relative w-full h-screen overflow-hidden group/hero">
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <a class="mobile-menu-item" href="#hero">Home</a>
+        <a class="mobile-menu-item" href="#about">About</a>
+        <a class="mobile-menu-item" href="#services">Services</a>
+        <a class="mobile-menu-item" href="#portfolio">Portfolio</a>
+        <a class="mobile-menu-item" href="#contact">Contact</a>
+        <div style="padding: 24px;">
+            <a href="#contact" class="block w-full bg-primary text-background-dark text-center py-3 rounded-full font-bold uppercase tracking-widest transition-all hover:shadow-lg">
+                Book Now
+            </a>
+        </div>
+    </div>
+
+    <section id="hero" class="relative w-full h-screen overflow-hidden group/hero mt-16 sm:mt-0">
         <div class="absolute inset-0 w-full h-full z-0 pointer-events-none">
             <div id="heroCarousel" class="w-full h-full bg-cover bg-center transform origin-center animate-ken-burns" 
                  style='background-image: url("https://plus.unsplash.com/premium_photo-1729621685969-5b03b3aaeb5a?q=80&w=1163&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");'>
@@ -148,19 +271,19 @@
             <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/90 z-10"></div>
         </div>
 
-        <main class="relative z-20 flex flex-col items-center justify-center h-full px-4 text-center">
-            <div class="space-y-6 max-w-4xl mx-auto animate-fade-in-up">
-                <span class="inline-block py-1 px-3 rounded-full border border-white/20 bg-black/30 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase text-primary mb-4">
+        <main class="relative z-20 flex flex-col items-center justify-center h-full px-3 sm:px-4 text-center">
+            <div class="space-y-4 sm:space-y-6 max-w-4xl mx-auto animate-fade-in-up">
+                <span class="inline-block py-1 px-3 rounded-full border border-white/20 bg-black/30 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase text-primary mb-2 sm:mb-4">
                     Fine Art Photography
                 </span>
-                <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-medium leading-tight tracking-tight text-white hero-text-shadow">
+                <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium leading-tight tracking-tight text-white hero-text-shadow">
                     Harshank Creates
                 </h1>
-                <p class="font-display text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed">
+                <p class="font-display text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed px-2 sm:px-0">
                     Capturing life's cinematic moments in high definition. We tell stories through light, shadow, and emotion.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 w-full sm:w-auto">
-                    <a href="#contact" class="group relative w-full sm:w-auto px-10 py-4 overflow-hidden rounded-full font-bold uppercase tracking-widest text-sm text-background-dark transition-all duration-300 flex items-center justify-center gap-2">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 w-full sm:w-auto px-2 sm:px-0">
+                    <a href="#contact" class="group relative w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 overflow-hidden rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm text-background-dark transition-all duration-300 flex items-center justify-center gap-2 min-h-[44px]">
                         <div class="absolute inset-0 bg-primary z-0"></div>
                         <div class="absolute inset-0 bg-gradient-to-r from-primary via-white to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                         <div class="absolute inset-0 rounded-full bg-primary shadow-[0_0_30px_rgba(212,175,53,0.8)] opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 z-0"></div>
@@ -169,7 +292,7 @@
                             <span class="material-symbols-outlined text-base transition-all duration-300 group-hover:translate-x-1">arrow_forward</span>
                         </span>
                     </a>
-                    <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/40 text-white text-base font-bold rounded-full hover:bg-white/10 hover:border-primary transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2 group">
+                    <a href="#portfolio" class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white/40 text-white text-xs sm:text-base font-bold rounded-full hover:bg-white/10 hover:border-primary transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2 group min-h-[44px]">
                         <span>View Portfolio</span>
                         <span class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">photo_camera</span>
                     </a>
@@ -183,13 +306,13 @@
         </button>
     </section>
 
-    <section id="about" class="relative overflow-hidden py-20 lg:py-32 bg-background-dark">
+    <section id="about" class="relative overflow-hidden py-12 sm:py-20 lg:py-32 bg-background-dark">
         <div class="absolute left-0 top-0 -z-10 h-full w-full opacity-20 pointer-events-none">
             <div class="absolute left-[-10%] top-[20%] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]"></div>
         </div>
         
-        <div class="mx-auto max-w-[1200px] px-6 lg:px-8">
-            <div class="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+        <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20 items-center">
                 <div class="relative group">
                     <div class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-primary/30 opacity-60 transition-transform duration-500 group-hover:translate-x-5 group-hover:translate-y-5"></div>
                     <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface-dark shadow-2xl">
@@ -236,19 +359,19 @@
         </div>
     </section>
 
-    <section id="services" class="relative bg-surface-dark py-24 lg:py-32">
+    <section id="services" class="relative bg-surface-dark py-12 sm:py-24 lg:py-32">
         <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background-dark to-transparent pointer-events-none"></div>
         
-        <div class="mx-auto max-w-[1200px] px-6 lg:px-8">
-            <div class="mb-20 flex flex-col items-center text-center">
-                <span class="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">Curated Services</span>
-                <h2 class="max-w-2xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+        <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+            <div class="mb-12 sm:mb-20 flex flex-col items-center text-center">
+                <span class="mb-2 sm:mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">Curated Services</span>
+                <h2 class="max-w-2xl text-2xl sm:text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
                     Premium Photography Packages
                 </h2>
-                <div class="mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                <div class="mt-4 sm:mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent"></div>
             </div>
 
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <div class="group relative overflow-hidden rounded-xl border border-white/5 bg-surface-glass backdrop-blur-sm p-8 transition-all duration-300 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_0_30px_-10px_rgba(212,175,53,0.3)]">
                     <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
                     <div class="relative z-10 flex flex-col h-full">
@@ -300,11 +423,11 @@
         </div>
     </section>
 
-    <section id="portfolio" class="bg-background-dark pb-20 pt-10 w-full">
-        <div class="py-10 md:py-14 px-4">
-            <div class="max-w-7xl mx-auto flex flex-col items-center gap-6">
-                <h2 class="text-3xl md:text-4xl font-light text-center tracking-tight text-white">Selected Works</h2>
-                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-4 mt-2">
+    <section id="portfolio" class="bg-background-dark pb-12 sm:pb-20 pt-8 sm:pt-10 w-full">
+        <div class="py-8 sm:py-10 md:py-14 px-4 sm:px-6">
+            <div class="max-w-7xl mx-auto flex flex-col items-center gap-4 sm:gap-6">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-center tracking-tight text-white">Selected Works</h2>
+                <div class="flex flex-wrap justify-center items-center gap-3 sm:gap-6 lg:gap-x-8 gap-y-3 sm:gap-y-4 mt-2">
                     <button data-filter="all" class="portfolio-filter group relative pb-1 text-sm font-semibold tracking-wider uppercase text-primary active">
                         All
                         <span class="absolute bottom-0 left-0 h-[2px] w-full bg-primary transition-all duration-300"></span>
@@ -647,19 +770,19 @@
         </div>
     </section>
 
-    <section id="contact" class="flex flex-col relative pt-24 pb-12 lg:pt-32 lg:pb-20 bg-background-dark">
-        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none overflow-hidden">
+    <section id="contact" class="flex flex-col relative pt-12 sm:pt-24 pb-8 sm:pb-12 lg:pt-32 lg:pb-20 bg-background-dark">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none overflow-hidden hidden sm:block">
             <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary rounded-full blur-[120px] translate-x-1/2"></div>
         </div>
         
-        <div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+        <div class="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20">
                 <div class="lg:col-span-5 flex flex-col justify-center">
-                    <span class="text-primary text-sm font-bold tracking-[0.2em] uppercase mb-4">Contact</span>
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-serif font-medium text-white leading-tight mb-6">
+                    <span class="text-primary text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-2 sm:mb-4">Contact</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-serif font-medium text-white leading-tight mb-4 sm:mb-6">
                         Let's Create Something <span class="italic text-primary">Beautiful</span>
                     </h2>
-                    <p class="text-gray-400 text-lg leading-relaxed mb-12 max-w-md">
+                    <p class="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-12 max-w-md">
                         Ready to bring your cinematic vision to life? I'm currently available for select projects worldwide. Let's discuss your story.
                     </p>
                     
@@ -780,28 +903,28 @@
         </div>
     </section>
 
-    <footer class="bg-[#050504] border-t border-white/5 pt-20 pb-10">
-        <div class="container mx-auto px-6 md:px-12 flex flex-col items-center">
-            <div class="mb-12 text-center">
-                <h2 class="font-serif text-3xl md:text-5xl text-white tracking-tight mb-2">HARSHANK CREATES</h2>
+    <footer class="bg-[#050504] border-t border-white/5 pt-12 sm:pt-20 pb-8 sm:pb-10">
+        <div class="container mx-auto px-4 sm:px-6 md:px-12 flex flex-col items-center">
+            <div class="mb-8 sm:mb-12 text-center">
+                <h2 class="font-serif text-2xl sm:text-3xl md:text-5xl text-white tracking-tight mb-2">HARSHANK CREATES</h2>
                 <p class="text-primary/60 uppercase tracking-[0.3em] text-xs md:text-sm">Cinematic Storytelling</p>
             </div>
             
-            <nav class="mb-12">
-                <ul class="flex flex-wrap justify-center gap-8 md:gap-12">
-                    <li><a href="#hero" class="text-gray-400 hover:text-primary text-sm font-medium tracking-wide uppercase transition-colors">Home</a></li>
-                    <li><a href="#portfolio" class="text-gray-400 hover:text-primary text-sm font-medium tracking-wide uppercase transition-colors">Portfolio</a></li>
-                    <li><a href="#services" class="text-gray-400 hover:text-primary text-sm font-medium tracking-wide uppercase transition-colors">Services</a></li>
-                    <li><a href="#about" class="text-gray-400 hover:text-primary text-sm font-medium tracking-wide uppercase transition-colors">About</a></li>
-                    <li><a href="#contact" class="text-gray-400 hover:text-primary text-sm font-medium tracking-wide uppercase transition-colors">Contact</a></li>
+            <nav class="mb-8 sm:mb-12">
+                <ul class="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12">
+                    <li><a href="#hero" class="text-gray-400 hover:text-primary text-xs sm:text-sm font-medium tracking-wide uppercase transition-colors">Home</a></li>
+                    <li><a href="#portfolio" class="text-gray-400 hover:text-primary text-xs sm:text-sm font-medium tracking-wide uppercase transition-colors">Portfolio</a></li>
+                    <li><a href="#services" class="text-gray-400 hover:text-primary text-xs sm:text-sm font-medium tracking-wide uppercase transition-colors">Services</a></li>
+                    <li><a href="#about" class="text-gray-400 hover:text-primary text-xs sm:text-sm font-medium tracking-wide uppercase transition-colors">About</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-primary text-xs sm:text-sm font-medium tracking-wide uppercase transition-colors">Contact</a></li>
                 </ul>
             </nav>
             
             <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8"></div>
             
-            <div class="flex flex-col md:flex-row justify-between items-center w-full gap-4 text-gray-500 text-sm">
+            <div class="flex flex-col md:flex-row justify-between items-center w-full gap-4 text-gray-500 text-xs sm:text-sm text-center md:text-left">
                 <p>© 2024 Harshank Creates. All Rights Reserved.</p>
-                <div class="flex gap-6">
+                <div class="flex gap-4 sm:gap-6">
                     <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition-colors">Terms of Use</a>
                 </div>
@@ -853,6 +976,37 @@
     </div>
     
     <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+
+        if (menuToggle && mobileMenu) {
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                this.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+
+            // Close menu when clicking on menu items
+            mobileMenuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('#menuToggle') && !event.target.closest('#mobileMenu')) {
+                    mobileMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+
         // Hero Section - Image Carousel
         const heroImages = [
             'https://plus.unsplash.com/premium_photo-1729621685969-5b03b3aaeb5a?q=80&w=1163&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
