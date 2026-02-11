@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html class="dark" lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Harshank Creates - Cinematic Portfolio</title>
-    
+
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="2983067.png"/>
-    
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    
+    <link rel="icon" type="image/png" href="faviconcircle.png" />
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    
+
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -29,13 +33,13 @@
                         "background-dark": "#0a0a08", /* Rich Black */
                         "surface-dark": "#12100b",    /* Slightly lighter for cards/sections */
                         "surface-glass": "rgba(32, 29, 18, 0.7)",
-                        "overlay-dark": "rgba(10, 10, 8, 0.4)" 
+                        "overlay-dark": "rgba(10, 10, 8, 0.4)"
                     },
                     fontFamily: {
                         "display": ["Manrope", "sans-serif"],
                         "serif": ["Playfair Display", "serif"],
                     },
-                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
                     animation: {
                         'ken-burns': 'kenBurns 20s ease-out infinite alternate',
                         'bounce-slow': 'bounce 2s infinite',
@@ -58,7 +62,7 @@
             },
         }
     </script>
-    
+
     <style>
         /* Smooth Scrolling */
         html {
@@ -72,37 +76,331 @@
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .hero-text-shadow {
-            text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0a0a08;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #333;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #d4af35;
         }
-        
+
+        /* Premium Sticky WhatsApp Button */
+        .whatsapp-float-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 45;
+            pointer-events: auto;
+        }
+
+        .whatsapp-float-btn a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25d366 0%, #20ba5c 100%);
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35), 0 4px 16px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-float-btn a::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .whatsapp-float-btn a:hover {
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 16px 48px rgba(37, 211, 102, 0.45), 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-float-btn a:hover::before {
+            opacity: 1;
+        }
+
+        .whatsapp-float-btn a:active {
+            transform: scale(0.95) translateY(-2px);
+        }
+
+        .whatsapp-float-btn i {
+            color: white;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .whatsapp-float-btn {
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .whatsapp-float-btn a {
+                width: 54px;
+                height: 54px;
+            }
+
+            .whatsapp-float-btn i {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-float-btn {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .whatsapp-float-btn a {
+                width: 50px;
+                height: 50px;
+                box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3), 0 3px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            .whatsapp-float-btn i {
+                font-size: 1.125rem;
+            }
+        }
+
+        /* Enhanced Social Media Links */
+        .social-link {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .social-link-icon {
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .social-link-tooltip {
+            position: absolute;
+            right: 80px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease 0.1s;
+            background: rgba(10, 10, 8, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 175, 53, 0.3);
+            white-space: nowrap;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #d4af35;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+
+        .social-link:hover .social-link-tooltip {
+            opacity: 1;
+        }
+
         /* Masonry Grid Fixes */
         .masonry-grid-item {
             break-inside: avoid;
             margin-bottom: 1.5rem;
         }
 
+        /* Portfolio Image Lightbox */
+        .portfolio-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+            cursor: zoom-out;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .portfolio-lightbox.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: default;
+        }
+
+        .portfolio-lightbox.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 25px 100px rgba(212, 175, 53, 0.3);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 175, 53, 0.2);
+            border: 2px solid rgba(212, 175, 53, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10000;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(212, 175, 53, 0.9);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        .lightbox-close::before,
+        .lightbox-close::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: white;
+        }
+
+        .lightbox-close::before {
+            transform: rotate(45deg);
+        }
+
+        .lightbox-close::after {
+            transform: rotate(-45deg);
+        }
+
+        /* Enhanced Portfolio Item Hover */
+        .portfolio-item {
+            cursor: zoom-in;
+            position: relative;
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 53, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+            border-radius: 0.5rem;
+        }
+
+        .portfolio-item:hover::before {
+            opacity: 1;
+        }
+
+        /* Zoom Indicator */
+        .portfolio-item .zoom-indicator {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            background: rgba(10, 10, 8, 0.8);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 2;
+            border: 2px solid rgba(212, 175, 53, 0.5);
+        }
+
+        .portfolio-item:hover .zoom-indicator {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .zoom-indicator i {
+            color: #d4af35;
+            font-size: 18px;
+        }
+
+        /* Improved Grid Spacing */
+        .portfolio-masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        @media (min-width: 640px) {
+            .portfolio-masonry-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .portfolio-masonry-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .portfolio-masonry-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
         /* Material Symbols Settings */
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
-        
+
         /* Hero Carousel Smooth Transition */
         #heroCarousel {
             transition: filter 0.8s ease-in-out;
@@ -122,7 +420,8 @@
             transform: translateX(-100%);
             transition: transform 0.3s ease-in-out;
             overflow-y: auto;
-            padding-top: 80px;
+            padding-top: 100px;
+            padding-bottom: 40px;
         }
 
         .mobile-menu.active {
@@ -149,16 +448,16 @@
 
         .menu-toggle {
             cursor: pointer;
-            padding: 8px;
+            padding: 8px 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            top: 50%;
-            transform: translateY(-50%);
+            z-index: 51;
+            position: relative;
         }
 
         .menu-toggle.active span {
-            background: transparent !important;
+            background: #d4af35 !important;
         }
 
         .menu-toggle.active span:first-child {
@@ -183,7 +482,7 @@
 
         .hamburger span {
             width: 24px;
-            height: 2px;
+            height: 2.5px;
             background: currentColor;
             transition: all 0.3s ease;
             display: block;
@@ -195,11 +494,11 @@
             body {
                 font-size: 14px;
             }
-            
+
             h1 {
                 font-size: 2.5rem !important;
             }
-            
+
             h2 {
                 font-size: 1.75rem !important;
             }
@@ -213,34 +512,46 @@
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-gray-100 overflow-x-hidden antialiased selection:bg-primary selection:text-white">
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-gray-100 overflow-x-hidden antialiased selection:bg-primary selection:text-white">
 
     <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <div class="w-full glass-nav">
             <div class="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
                 <div class="flex items-center gap-2 sm:gap-3">
-                    <div class="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-primary flex-shrink-0">
-                        <span class="material-symbols-outlined text-2xl sm:text-3xl">camera</span>
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
+                        <span class="text-background-dark font-bold text-lg">HC</span>
                     </div>
-                    <a class="font-serif font-bold text-base sm:text-xl tracking-wide text-white hover:text-primary transition-colors duration-300" href="#">
+                    <a class="font-serif font-bold text-base sm:text-xl tracking-wide text-white hover:text-primary transition-colors duration-300"
+                        href="#">
                         <span class="hidden xs:inline">Harshank Creates</span>
                         <span class="xs:hidden">Harshank Creates</span>
                     </a>
                 </div>
 
                 <div class="hidden md:flex items-center gap-6 lg:gap-8">
-                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#hero">Home</a>
-                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#about">About</a>
-                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#services">Services</a>
-                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#portfolio">Portfolio</a>
-                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider" href="#contact">Contact</a>
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider"
+                        href="#hero">Home</a>
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider"
+                        href="#about">About</a>
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider"
+                        href="#services">Services</a>
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider"
+                        href="#portfolio">Portfolio</a>
+                    <a class="text-xs lg:text-sm font-medium text-white/90 hover:text-primary transition-colors duration-300 relative group uppercase tracking-wider"
+                        href="#contact">Contact</a>
                 </div>
 
                 <div class="flex items-center gap-2 sm:gap-4">
-                    <a href="#contact" class="hidden md:flex group relative h-9 sm:h-10 items-center justify-center overflow-hidden rounded-full border border-primary/30 bg-primary/10 px-4 sm:px-6 text-xs font-bold uppercase tracking-widest text-primary transition-all hover:bg-primary hover:text-background-dark">
+                    <a href="#contact"
+                        class="hidden md:flex group relative h-9 sm:h-10 items-center justify-center overflow-hidden rounded-full border border-primary/30 bg-primary/10 px-4 sm:px-6 text-xs font-bold uppercase tracking-widest text-primary transition-all hover:bg-primary hover:text-background-dark">
                         <span class="relative z-10">Book Now</span>
                     </a>
-                    <button id="menuToggle" class="md:hidden text-white hover:text-primary transition-colors p-2 menu-toggle" aria-label="Toggle menu">
+                    <button id="menuToggle"
+                        class="md:hidden text-white hover:text-primary transition-colors p-2 menu-toggle"
+                        aria-label="Toggle menu">
                         <div class="hamburger">
                             <span></span>
                             <span></span>
@@ -260,7 +571,8 @@
         <a class="mobile-menu-item" href="#portfolio">Portfolio</a>
         <a class="mobile-menu-item" href="#contact">Contact</a>
         <div style="padding: 24px;">
-            <a href="#contact" class="block w-full bg-primary text-background-dark text-center py-3 rounded-full font-bold uppercase tracking-widest transition-all hover:shadow-lg">
+            <a href="#contact"
+                class="block w-full bg-primary text-background-dark text-center py-3 rounded-full font-bold uppercase tracking-widest transition-all hover:shadow-lg">
                 Book Now
             </a>
         </div>
@@ -268,42 +580,58 @@
 
     <section id="hero" class="relative w-full h-screen overflow-hidden group/hero mt-16 sm:mt-0">
         <div class="absolute inset-0 w-full h-full z-0 pointer-events-none">
-            <div id="heroCarousel" class="w-full h-full bg-cover bg-center transform origin-center animate-ken-burns" 
-                 style='background-image: url("https://plus.unsplash.com/premium_photo-1729621685969-5b03b3aaeb5a?q=80&w=1163&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");'>
+            <div id="heroCarousel" class="w-full h-full bg-cover bg-center transform origin-center animate-ken-burns"
+                style='background-image: url("https://www.yourtango.com/sites/default/files/image_blog/2024-11/marriage-lasts-simple-shift-wedding-vows.png");'>
             </div>
             <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/90 z-10"></div>
         </div>
 
         <main class="relative z-20 flex flex-col items-center justify-center h-full px-3 sm:px-4 text-center">
             <div class="space-y-4 sm:space-y-6 max-w-4xl mx-auto animate-fade-in-up">
-                <span class="inline-block py-1 px-3 rounded-full border border-white/20 bg-black/30 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase text-primary mb-2 sm:mb-4">
+                <span
+                    class="inline-block py-1 px-3 rounded-full border border-white/20 bg-black/30 backdrop-blur-sm text-xs font-semibold tracking-widest uppercase text-primary mb-2 sm:mb-4">
                     Fine Art Photography
                 </span>
-                <h1 class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium leading-tight tracking-tight text-white hero-text-shadow">
+                <h1
+                    class="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium leading-tight tracking-tight text-white hero-text-shadow">
                     Harshank Creates
                 </h1>
-                <p class="font-display text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed px-2 sm:px-0">
-                    Capturing life's cinematic moments in high definition. We tell stories through light, shadow, and emotion.
+                <p
+                    class="font-display text-sm sm:text-base md:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed px-2 sm:px-0">
+                    Capturing life's cinematic moments in high definition. We tell stories through light, shadow, and
+                    emotion.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 w-full sm:w-auto px-2 sm:px-0">
-                    <a href="#contact" class="group relative w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 overflow-hidden rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm text-background-dark transition-all duration-300 flex items-center justify-center gap-2 min-h-[44px]">
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 w-full sm:w-auto px-2 sm:px-0">
+                    <a href="#contact"
+                        class="group relative w-full sm:w-auto px-6 sm:px-10 py-3 sm:py-4 overflow-hidden rounded-full font-bold uppercase tracking-widest text-xs sm:text-sm text-background-dark transition-all duration-300 flex items-center justify-center gap-2 min-h-[44px]">
                         <div class="absolute inset-0 bg-primary z-0"></div>
-                        <div class="absolute inset-0 bg-gradient-to-r from-primary via-white to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
-                        <div class="absolute inset-0 rounded-full bg-primary shadow-[0_0_30px_rgba(212,175,53,0.8)] opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 z-0"></div>
-                        <span class="relative z-10 flex items-center gap-2 group-hover:scale-105 transition-transform duration-300">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-r from-primary via-white to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0">
+                        </div>
+                        <div
+                            class="absolute inset-0 rounded-full bg-primary shadow-[0_0_30px_rgba(212,175,53,0.8)] opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 z-0">
+                        </div>
+                        <span
+                            class="relative z-10 flex items-center gap-2 group-hover:scale-105 transition-transform duration-300">
                             Book Now
-                            <span class="material-symbols-outlined text-base transition-all duration-300 group-hover:translate-x-1">arrow_forward</span>
+                            <span
+                                class="material-symbols-outlined text-base transition-all duration-300 group-hover:translate-x-1">arrow_forward</span>
                         </span>
                     </a>
-                    <a href="#portfolio" class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white/40 text-white text-xs sm:text-base font-bold rounded-full hover:bg-white/10 hover:border-primary transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2 group min-h-[44px]">
+                    <a href="#portfolio"
+                        class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white/40 text-white text-xs sm:text-base font-bold rounded-full hover:bg-white/10 hover:border-primary transition-all duration-300 backdrop-blur-sm flex items-center justify-center gap-2 group min-h-[44px]">
                         <span>View Portfolio</span>
-                        <span class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">photo_camera</span>
+                        <span
+                            class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">photo_camera</span>
                     </a>
                 </div>
             </div>
         </main>
 
-        <button id="scrollBtn" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-80 animate-bounce-slow cursor-pointer hover:opacity-100 transition-opacity bg-transparent border-none p-0" type="button">
+        <button id="scrollBtn"
+            class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-2 opacity-80 animate-bounce-slow cursor-pointer hover:opacity-100 transition-opacity bg-transparent border-none p-0"
+            type="button">
             <span class="text-[10px] uppercase tracking-[0.3em] font-light text-white/70">Scroll</span>
             <div class="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent"></div>
         </button>
@@ -311,18 +639,24 @@
 
     <section id="about" class="relative overflow-hidden py-12 sm:py-20 lg:py-32 bg-background-dark">
         <div class="absolute left-0 top-0 -z-10 h-full w-full opacity-20 pointer-events-none">
-            <div class="absolute left-[-10%] top-[20%] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]"></div>
+            <div class="absolute left-[-10%] top-[20%] h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]">
+            </div>
         </div>
-        
+
         <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
             <div class="grid gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20 items-center">
                 <div class="relative group">
-                    <div class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-primary/30 opacity-60 transition-transform duration-500 group-hover:translate-x-5 group-hover:translate-y-5"></div>
+                    <div
+                        class="absolute inset-0 translate-x-3 translate-y-3 rounded-2xl border border-primary/30 opacity-60 transition-transform duration-500 group-hover:translate-x-5 group-hover:translate-y-5">
+                    </div>
                     <div class="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface-dark shadow-2xl">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-                        <img alt="Black and white artistic portrait of a photographer" class="h-full w-full object-cover transition-transform duration-700 hover:scale-105 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEu0oe1_G-W1Jy1WQpFSHMAn31BJjbX3OCJwEsvFyrln1Bg0B8fczYPdviW-9UfyujBXasTQR_cZqoSvalf67hn8D-DgtbX0uiwnqAGG2tx0mwpzW3thNoDesmozMU_OMJ98Q5MOSiJ1N9FYIyjvZWrHQ3IILTtHpr5O8lM1mX9rGMxZE585mfRI8YkrStBlIdqWD_Gj495rBxijZNKOOVUqX6KJcw4Jq1M2804AsGj2Mqj5lw_l8jjO4ObRj2v6yREQ2gJPQ2EA"/>
+                        <img alt="Black and white artistic portrait of a photographer"
+                            class="h-full w-full object-cover transition-transform duration-700 hover:scale-105 grayscale"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEu0oe1_G-W1Jy1WQpFSHMAn31BJjbX3OCJwEsvFyrln1Bg0B8fczYPdviW-9UfyujBXasTQR_cZqoSvalf67hn8D-DgtbX0uiwnqAGG2tx0mwpzW3thNoDesmozMU_OMJ98Q5MOSiJ1N9FYIyjvZWrHQ3IILTtHpr5O8lM1mX9rGMxZE585mfRI8YkrStBlIdqWD_Gj495rBxijZNKOOVUqX6KJcw4Jq1M2804AsGj2Mqj5lw_l8jjO4ObRj2v6yREQ2gJPQ2EA" />
                     </div>
-                    <div class="absolute -bottom-6 -right-6 z-20 flex h-24 w-24 items-center justify-center rounded-full bg-primary text-background-dark shadow-lg">
+                    <div
+                        class="absolute -bottom-6 -right-6 z-20 flex h-24 w-24 items-center justify-center rounded-full bg-primary text-background-dark shadow-lg">
                         <span class="material-symbols-outlined !text-4xl animate-pulse">edit_note</span>
                     </div>
                 </div>
@@ -333,15 +667,19 @@
                             <span class="h-[1px] w-12 bg-primary"></span>
                             <span class="text-sm font-bold uppercase tracking-widest text-primary">About Me</span>
                         </div>
-                        <h2 class="font-display text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-                            The Man Behind <br/> The Lens
+                        <h2
+                            class="font-display text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                            The Man Behind <br /> The Lens
                         </h2>
                     </div>
                     <p class="text-lg leading-relaxed text-gray-400">
-                        Capturing the raw emotion and cinematic beauty of life's most fleeting moments. Harshank brings a unique storytelling perspective to every frame, blending artistic vision with technical precision to create timeless memories.
+                        Capturing the raw emotion and cinematic beauty of life's most fleeting moments. Harshank brings
+                        a unique storytelling perspective to every frame, blending artistic vision with technical
+                        precision to create timeless memories.
                     </p>
                     <p class="text-lg leading-relaxed text-gray-400">
-                        My philosophy is rooted in observation—finding the quiet pauses in a chaotic world and transforming them into visual poetry that resonates for generations.
+                        My philosophy is rooted in observation—finding the quiet pauses in a chaotic world and
+                        transforming them into visual poetry that resonates for generations.
                     </p>
                     <div class="mt-8 flex gap-8 border-t border-white/10 pt-8">
                         <div>
@@ -363,38 +701,50 @@
     </section>
 
     <section id="services" class="relative bg-surface-dark py-12 sm:py-24 lg:py-32">
-        <div class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background-dark to-transparent pointer-events-none"></div>
-        
+        <div
+            class="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background-dark to-transparent pointer-events-none">
+        </div>
+
         <div class="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
             <div class="mb-12 sm:mb-20 flex flex-col items-center text-center">
-                <span class="mb-2 sm:mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">Curated Services</span>
+                <span class="mb-2 sm:mb-4 text-xs font-bold uppercase tracking-[0.2em] text-primary">Curated
+                    Services</span>
                 <h2 class="max-w-2xl text-2xl sm:text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
                     Premium Photography Packages
                 </h2>
-                <div class="mt-4 sm:mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                <div
+                    class="mt-4 sm:mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-transparent via-primary to-transparent">
+                </div>
             </div>
 
             <div class="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
                 <!-- Card 1 -->
-                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 sm:p-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border border-white/10 hover:border-white/30">
+                <div
+                    class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 sm:p-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border border-white/10 hover:border-white/30">
                     <!-- Gradient Border Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
-                    
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-pink-500/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10">
+                    </div>
+
                     <div class="relative z-10 flex flex-col h-full">
                         <!-- Icon -->
-                        <div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500/30 to-red-500/20 text-pink-400 border border-pink-500/40 group-hover:from-pink-500 group-hover:to-red-500 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <div
+                            class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-pink-500/30 to-red-500/20 text-pink-400 border border-pink-500/40 group-hover:from-pink-500 group-hover:to-red-500 group-hover:text-white group-hover:scale-110 transition-all duration-300">
                             <span class="material-symbols-outlined !text-4xl">favorite</span>
                         </div>
-                        
+
                         <!-- Title & Subtitle -->
-                        <h3 class="mb-2 text-2xl sm:text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-pink-400 group-hover:to-red-400 transition-all duration-300">Wedding & Elopement</h3>
+                        <h3
+                            class="mb-2 text-2xl sm:text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-pink-400 group-hover:to-red-400 transition-all duration-300">
+                            Wedding & Elopement</h3>
                         <p class="mb-4 text-primary text-sm font-semibold tracking-wider uppercase">Romantic Stories</p>
-                        
+
                         <!-- Description -->
                         <p class="mb-6 flex-grow text-sm leading-relaxed text-gray-300">
-                            Documenting love stories with a cinematic, candid approach that captures genuine emotion. We focus on the unscripted moments that make your day truly yours.
+                            Documenting love stories with a cinematic, candid approach that captures genuine emotion. We
+                            focus on the unscripted moments that make your day truly yours.
                         </p>
-                        
+
                         <!-- Features -->
                         <div class="mb-8 space-y-3 pb-6 border-b border-white/10">
                             <div class="flex items-center gap-3 text-sm text-gray-300">
@@ -414,45 +764,55 @@
                                 <span>Premium album & prints</span>
                             </div>
                         </div>
-                        
+
                         <!-- CTA -->
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-xs text-gray-400 mb-1">Starting from</p>
                                 <p class="text-2xl font-bold text-primary">₹50K</p>
                             </div>
-                            <a class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-red-500 text-white text-sm font-bold rounded-lg hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300 group/btn hover:scale-105">
-                                Inquire <span class="material-symbols-outlined text-base transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+                            <a
+                                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-red-500 text-white text-sm font-bold rounded-lg hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300 group/btn hover:scale-105">
+                                Inquire <span
+                                    class="material-symbols-outlined text-base transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2 (Featured) -->
-                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 p-8 sm:p-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border-2 border-primary hover:border-primary md:scale-105 md:shadow-2xl md:shadow-primary/20">
+                <div
+                    class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 p-8 sm:p-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border-2 border-primary hover:border-primary md:scale-105 md:shadow-2xl md:shadow-primary/20">
                     <!-- Most Popular Badge -->
-                    <div class="absolute top-0 right-0 bg-gradient-to-r from-primary to-yellow-500 text-background-dark px-6 py-2 text-xs font-bold uppercase tracking-widest rounded-bl-2xl">
+                    <div
+                        class="absolute top-0 right-0 bg-gradient-to-r from-primary to-yellow-500 text-background-dark px-6 py-2 text-xs font-bold uppercase tracking-widest rounded-bl-2xl">
                         Most Popular
                     </div>
-                    
+
                     <!-- Glow Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
-                    
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10">
+                    </div>
+
                     <div class="relative z-10 flex flex-col h-full">
                         <!-- Icon -->
-                        <div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-primary/40 to-yellow-500/20 text-primary border border-primary/60 group-hover:from-primary group-hover:to-yellow-400 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <div
+                            class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-primary/40 to-yellow-500/20 text-primary border border-primary/60 group-hover:from-primary group-hover:to-yellow-400 group-hover:text-white group-hover:scale-110 transition-all duration-300">
                             <span class="material-symbols-outlined !text-4xl">camera_roll</span>
                         </div>
-                        
+
                         <!-- Title & Subtitle -->
-                        <h3 class="mb-2 text-2xl sm:text-xl font-bold text-white group-hover:text-primary transition-all duration-300">Editorial Fashion</h3>
+                        <h3
+                            class="mb-2 text-2xl sm:text-xl font-bold text-white group-hover:text-primary transition-all duration-300">
+                            Editorial Fashion</h3>
                         <p class="mb-4 text-primary text-sm font-semibold tracking-wider uppercase">Bold & Artistic</p>
-                        
+
                         <!-- Description -->
                         <p class="mb-6 flex-grow text-sm leading-relaxed text-gray-300">
-                            High-end editorial shoots that blend style, texture, and mood for magazines and personal portfolios. Creating bold statements through lighting and composition.
+                            High-end editorial shoots that blend style, texture, and mood for magazines and personal
+                            portfolios. Creating bold statements through lighting and composition.
                         </p>
-                        
+
                         <!-- Features -->
                         <div class="mb-8 space-y-3 pb-6 border-b border-primary/20">
                             <div class="flex items-center gap-3 text-sm text-gray-300">
@@ -472,40 +832,50 @@
                                 <span>Magazine-ready final files</span>
                             </div>
                         </div>
-                        
+
                         <!-- CTA -->
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-xs text-gray-400 mb-1">Starting from</p>
                                 <p class="text-2xl font-bold text-primary">₹75K</p>
                             </div>
-                            <a class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-background-dark text-sm font-bold rounded-lg hover:shadow-lg hover:shadow-primary/60 transition-all duration-300 group/btn hover:scale-105">
-                                Inquire <span class="material-symbols-outlined text-base transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+                            <a
+                                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-background-dark text-sm font-bold rounded-lg hover:shadow-lg hover:shadow-primary/60 transition-all duration-300 group/btn hover:scale-105">
+                                Inquire <span
+                                    class="material-symbols-outlined text-base transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 sm:p-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border border-white/10 hover:border-white/30">
+                <div
+                    class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-8 sm:p-10 transition-all duration-500 hover:shadow-2xl hover:-translate-y-3 border border-white/10 hover:border-white/30">
                     <!-- Gradient Border Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
-                    
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-cyan-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10">
+                    </div>
+
                     <div class="relative z-10 flex flex-col h-full">
                         <!-- Icon -->
-                        <div class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/30 to-cyan-500/20 text-blue-400 border border-blue-500/40 group-hover:from-blue-500 group-hover:to-cyan-500 group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                        <div
+                            class="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500/30 to-cyan-500/20 text-blue-400 border border-blue-500/40 group-hover:from-blue-500 group-hover:to-cyan-500 group-hover:text-white group-hover:scale-110 transition-all duration-300">
                             <span class="material-symbols-outlined !text-4xl">storefront</span>
                         </div>
-                        
+
                         <!-- Title & Subtitle -->
-                        <h3 class="mb-2 text-2xl sm:text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300">Commercial Brand Story</h3>
-                        <p class="mb-4 text-primary text-sm font-semibold tracking-wider uppercase">Corporate Excellence</p>
-                        
+                        <h3
+                            class="mb-2 text-2xl sm:text-xl font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-cyan-400 transition-all duration-300">
+                            Commercial Brand Story</h3>
+                        <p class="mb-4 text-primary text-sm font-semibold tracking-wider uppercase">Corporate Excellence
+                        </p>
+
                         <!-- Description -->
                         <p class="mb-6 flex-grow text-sm leading-relaxed text-gray-300">
-                            Elevating brand identities through striking product photography and corporate storytelling. We translate your brand values into compelling visual narratives.
+                            Elevating brand identities through striking product photography and corporate storytelling.
+                            We translate your brand values into compelling visual narratives.
                         </p>
-                        
+
                         <!-- Features -->
                         <div class="mb-8 space-y-3 pb-6 border-b border-white/10">
                             <div class="flex items-center gap-3 text-sm text-gray-300">
@@ -525,15 +895,17 @@
                                 <span>Social media & web formats</span>
                             </div>
                         </div>
-                        
+
                         <!-- CTA -->
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-xs text-gray-400 mb-1">Starting from</p>
                                 <p class="text-2xl font-bold text-primary">₹60K</p>
                             </div>
-                            <a class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-bold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 group/btn hover:scale-105">
-                                Inquire <span class="material-symbols-outlined text-base transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+                            <a
+                                class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-bold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 group/btn hover:scale-105">
+                                Inquire <span
+                                    class="material-symbols-outlined text-base transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
                             </a>
                         </div>
                     </div>
@@ -545,23 +917,33 @@
     <section id="portfolio" class="bg-background-dark pb-12 sm:pb-20 pt-8 sm:pt-10 w-full">
         <div class="py-8 sm:py-10 md:py-14 px-4 sm:px-6">
             <div class="max-w-7xl mx-auto flex flex-col items-center gap-4 sm:gap-6">
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-center tracking-tight text-white">Selected Works</h2>
-                <div class="flex flex-wrap justify-center items-center gap-3 sm:gap-6 lg:gap-x-8 gap-y-3 sm:gap-y-4 mt-2">
-                    <button data-filter="all" class="portfolio-filter group relative pb-1 text-sm font-semibold tracking-wider uppercase text-primary active">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-center tracking-tight text-white">Selected
+                    Works</h2>
+                <div
+                    class="flex flex-wrap justify-center items-center gap-3 sm:gap-6 lg:gap-x-8 gap-y-3 sm:gap-y-4 mt-2">
+                    <button data-filter="all"
+                        class="portfolio-filter group relative pb-1 text-sm font-semibold tracking-wider uppercase text-primary active">
                         All
-                        <span class="absolute bottom-0 left-0 h-[2px] w-full bg-primary transition-all duration-300"></span>
+                        <span
+                            class="absolute bottom-0 left-0 h-[2px] w-full bg-primary transition-all duration-300"></span>
                     </button>
-                    <button data-filter="wedding" class="portfolio-filter group relative pb-1 text-sm font-medium tracking-wider uppercase text-gray-400 hover:text-white transition-colors">
+                    <button data-filter="wedding"
+                        class="portfolio-filter group relative pb-1 text-sm font-medium tracking-wider uppercase text-gray-400 hover:text-white transition-colors">
                         Wedding
-                        <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
                     </button>
-                    <button data-filter="portraits" class="portfolio-filter group relative pb-1 text-sm font-medium tracking-wider uppercase text-gray-400 hover:text-white transition-colors">
+                    <button data-filter="portraits"
+                        class="portfolio-filter group relative pb-1 text-sm font-medium tracking-wider uppercase text-gray-400 hover:text-white transition-colors">
                         Portraits
-                        <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
                     </button>
-                    <button data-filter="fashion" class="portfolio-filter group relative pb-1 text-sm font-medium tracking-wider uppercase text-gray-400 hover:text-white transition-colors">
+                    <button data-filter="fashion"
+                        class="portfolio-filter group relative pb-1 text-sm font-medium tracking-wider uppercase text-gray-400 hover:text-white transition-colors">
                         Fashion
-                        <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                        <span
+                            class="absolute bottom-0 left-0 h-[2px] w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
                     </button>
                 </div>
             </div>
@@ -569,11 +951,15 @@
 
         <div class="px-4 sm:px-6 lg:px-8 w-full max-w-[1920px] mx-auto">
             <div class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-6 space-y-6">
-                
+
                 <div class="portfolio-item masonry-grid-item group relative break-inside-avoid" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="High fashion dress" class="w-full h-auto aspect-square object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb4_y65KspoBSW2DlesifRJg7uIg9YLY7Nt-RMnLrc6ZEoC9WNUnlBY1F-vFz3jn7yXlPWH8Zyunmz-hDo5zD16M66u46hnQ-1WxX7O0yOlLu64KfojFKxjbWpYThPCMI0p4ZcDlRAsZA34aXR63ANTDKf7Sknpl6IFqKr1Sk9qyVT1OySzKFSY97ZOuau3rHJHW0-oSkc6RQYv27nmRXEPz919SdzPYlHIMcMoLZZzIWLb18R9HKtVflvpEWM3V7WYiGLSeHSMg"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="High fashion dress"
+                            class="w-full h-auto aspect-square object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb4_y65KspoBSW2DlesifRJg7uIg9YLY7Nt-RMnLrc6ZEoC9WNUnlBY1F-vFz3jn7yXlPWH8Zyunmz-hDo5zD16M66u46hnQ-1WxX7O0yOlLu64KfojFKxjbWpYThPCMI0p4ZcDlRAsZA34aXR63ANTDKf7Sknpl6IFqKr1Sk9qyVT1OySzKFSY97ZOuau3rHJHW0-oSkc6RQYv27nmRXEPz919SdzPYlHIMcMoLZZzIWLb18R9HKtVflvpEWM3V7WYiGLSeHSMg" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Fields of Gold</h3>
                         </div>
@@ -582,9 +968,13 @@
 
 
                 <div class="portfolio-item masonry-grid-item group relative break-inside-avoid" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Wedding couple" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpqEaVY5FvwG7no_2KYYx10dcD-ezt8XTPG-Y9siiEeMYD-hym88b_efFApZLZFQHdJSLjRKFUPPdbAVEEP0N9yD-zbTwIYdFJ41q-W0jgfnU2YIzAz2LJNemavit321-aCfDYud9pZnVI_y0ZPAwLwF0EWD2s_eIfRj-VUbJn3VHXWbc-EQ5P_VltXp3rcaJjeikQcpjpzMLyMnY4bm5tKm_-OavSQHlbYCi5nsFziH4btW27qLYrJsQNcT1m5nx7gqaw0Nktaw"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Wedding couple"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpqEaVY5FvwG7no_2KYYx10dcD-ezt8XTPG-Y9siiEeMYD-hym88b_efFApZLZFQHdJSLjRKFUPPdbAVEEP0N9yD-zbTwIYdFJ41q-W0jgfnU2YIzAz2LJNemavit321-aCfDYud9pZnVI_y0ZPAwLwF0EWD2s_eIfRj-VUbJn3VHXWbc-EQ5P_VltXp3rcaJjeikQcpjpzMLyMnY4bm5tKm_-OavSQHlbYCi5nsFziH4btW27qLYrJsQNcT1m5nx7gqaw0Nktaw" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Eternal Vows</h3>
                         </div>
@@ -592,28 +982,41 @@
                 </div>
 
                 <div class="portfolio-item masonry-grid-item group relative break-inside-avoid" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Fashion model" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE5gWmM_TYeTvMmz0DjiKc0MC84aDdUxwl4_e7LCyamPtK10GQb-tzrbH3l93pr_zv8sXWjG4WCaqCy6buKKBfcqT8QZbhnHB3Pj0000n7cd_OJanPDeq4wpJAih7xHOPF5bBpswfTvhWscQYQjVDYfO7MMlstOuM4-7L0iFJjKOzm8-Aw7MskeKKHU7rPSyJQmowOzGLAn4OalNZ6_M8PQ0VyrMCLT10cgFeqDCZfK9jX6aUajWuHcePbPyXXrXLzX7dDJ8dTPA"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Fashion model"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE5gWmM_TYeTvMmz0DjiKc0MC84aDdUxwl4_e7LCyamPtK10GQb-tzrbH3l93pr_zv8sXWjG4WCaqCy6buKKBfcqT8QZbhnHB3Pj0000n7cd_OJanPDeq4wpJAih7xHOPF5bBpswfTvhWscQYQjVDYfO7MMlstOuM4-7L0iFJjKOzm8-Aw7MskeKKHU7rPSyJQmowOzGLAn4OalNZ6_M8PQ0VyrMCLT10cgFeqDCZfK9jX6aUajWuHcePbPyXXrXLzX7dDJ8dTPA" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Vogue Fall Collection</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="First dance" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.pexels.com/photos/29548006/pexels-photo-29548006.jpeg?_gl=1*nygjk5*_ga*MzYyNzk2NzU0LjE3NzAzOTkwMjQ.*_ga_8JE65Q40S6*czE3NzA0NTk5OTAkbzMkZzEkdDE3NzA0NjA1MDgkajQzJGwwJGgw"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="wedding">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="First dance"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.pexels.com/photos/29548006/pexels-photo-29548006.jpeg?_gl=1*nygjk5*_ga*MzYyNzk2NzU0LjE3NzAzOTkwMjQ.*_ga_8JE65Q40S6*czE3NzA0NTk5OTAkbzMkZzEkdDE3NzA0NjA1MDgkajQzJGwwJGgw" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">First Dance</h3>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="portfolio-item masonry-grid-item group relative break-inside-avoid" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Wedding details" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPAOb4VI5102bvoiNuUKibkAkEjzFVLe3ke-IdmAJs4eINXJeU94oW2iHsVokwqRtdki8fycD8ls3YBAGrizL_pcwd8An5wcwDSgGYMefUg_EGXAFbgL_7G2k-xth2e3seShaXusAwdvh2Rpl1MqT8YhF-waAMMhD5edWdHTfk8uKGzLJI7ve5CVBx1P_720qHFuiQTaScW9jC8pbVsgrhfLUS5IDD_PVyl8ZAHfGr2uT6IdnSReeJB1fGFV2X3G89TywsHnJ55Q"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Wedding details"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPAOb4VI5102bvoiNuUKibkAkEjzFVLe3ke-IdmAJs4eINXJeU94oW2iHsVokwqRtdki8fycD8ls3YBAGrizL_pcwd8An5wcwDSgGYMefUg_EGXAFbgL_7G2k-xth2e3seShaXusAwdvh2Rpl1MqT8YhF-waAMMhD5edWdHTfk8uKGzLJI7ve5CVBx1P_720qHFuiQTaScW9jC8pbVsgrhfLUS5IDD_PVyl8ZAHfGr2uT6IdnSReeJB1fGFV2X3G89TywsHnJ55Q" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Rustic Elegance</h3>
                         </div>
@@ -621,27 +1024,41 @@
                 </div>
 
                 <div class="portfolio-item masonry-grid-item group relative break-inside-avoid" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Minimalist fashion" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR9PRW_Apqn90a6m8FFs-VPM84WrC16ZX19EWqhhWjzGWR8pgfIZ-LhmHTPU6zDIZroTsAOVCbJHZqvPyl_jshBWS-Oe1yJnpqICMXrRU3sNP52f_2H_SASfIkXPFt2Tto7Y1GBCDFCkc0gLw7z9qOg3b6QVRY8RumO_vPfkA0EYNAzpC_Ii_miHrHMw0Rpkjq65-DnbYKYGksgAVI3bqSwBmHw12aRds1-dXekOZTplZqHRu5Ufe1gaRloBHgaxXEHs0Rh0T4iQ"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Minimalist fashion"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR9PRW_Apqn90a6m8FFs-VPM84WrC16ZX19EWqhhWjzGWR8pgfIZ-LhmHTPU6zDIZroTsAOVCbJHZqvPyl_jshBWS-Oe1yJnpqICMXrRU3sNP52f_2H_SASfIkXPFt2Tto7Y1GBCDFCkc0gLw7z9qOg3b6QVRY8RumO_vPfkA0EYNAzpC_Ii_miHrHMw0Rpkjq65-DnbYKYGksgAVI3bqSwBmHw12aRds1-dXekOZTplZqHRu5Ufe1gaRloBHgaxXEHs0Rh0T4iQ" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Urban Geometry</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Night walk" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0-q7qQTxGCoOQF7iNSvylx0m6WnXpC3YVgHeYcDhRImjLwg6vVUjWwSXXy_J9wnnUWPxjL1Puqc2vbJASkttWd_lGXRsjI3bPvLckc7K70nLxT5mBU3_LWfORCLgGdFXoMR7VGLdEHWf5uT1D_codiJv7GhQKWqEh5e8glnqm4RR2iFTAcY_SA1Pe2LahYuGkpf_pZgFulCdXmDi3uInbYQgZ55qtv7ZP70P9sUeRQqyqRb-XAsOH-4IAetRRqClYb4TmO4lB-w"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Night walk"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0-q7qQTxGCoOQF7iNSvylx0m6WnXpC3YVgHeYcDhRImjLwg6vVUjWwSXXy_J9wnnUWPxjL1Puqc2vbJASkttWd_lGXRsjI3bPvLckc7K70nLxT5mBU3_LWfORCLgGdFXoMR7VGLdEHWf5uT1D_codiJv7GhQKWqEh5e8glnqm4RR2iFTAcY_SA1Pe2LahYuGkpf_pZgFulCdXmDi3uInbYQgZ55qtv7ZP70P9sUeRQqyqRb-XAsOH-4IAetRRqClYb4TmO4lB-w" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Night Walk</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Bride with bouquet" class="w-full h-auto aspect-square object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq8DzDX-MUHAE-1fU-vMECmvoAknU85-UER2pztnBri6vmlurpcdANAFuJYGb-bxPpI-7ptYeFZCrRyatLViOV-DYKZ3jLQMWFgbpCvC4Exmo08LAhYU-wBOdiBjFXTCTr6sL5LVCdILQSCy8f9NsFaSF7YoPhAdR9Gt0u7inG2ypRRDkZ2jPLLDBoGSKbJDAvOLeY7g139p8ov2dMlmPXpuWNLu0Y3WEc7DxcmX0GGVTKh0_2xlidHc9c5bzPkLDzxjBxBZLjyg"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="wedding">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Bride with bouquet"
+                            class="w-full h-auto aspect-square object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq8DzDX-MUHAE-1fU-vMECmvoAknU85-UER2pztnBri6vmlurpcdANAFuJYGb-bxPpI-7ptYeFZCrRyatLViOV-DYKZ3jLQMWFgbpCvC4Exmo08LAhYU-wBOdiBjFXTCTr6sL5LVCdILQSCy8f9NsFaSF7YoPhAdR9Gt0u7inG2ypRRDkZ2jPLLDBoGSKbJDAvOLeY7g139p8ov2dMlmPXpuWNLu0Y3WEc7DxcmX0GGVTKh0_2xlidHc9c5bzPkLDzxjBxBZLjyg" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Delicate Details</h3>
                         </div>
@@ -649,74 +1066,114 @@
                 </div>
 
                 <!-- Additional Wedding Items -->
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Golden sunset ceremony" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.pexels.com/photos/3673470/pexels-photo-3673470.jpeg?_gl=1*v9ig8w*_ga*MzYyNzk2NzU0LjE3NzAzOTkwMjQ.*_ga_8JE65Q40S6*czE3NzA0NTk5OTAkbzMkZzEkdDE3NzA0NjAwMzMkajE3JGwwJGgw"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="wedding">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Golden sunset ceremony"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.pexels.com/photos/3673470/pexels-photo-3673470.jpeg?_gl=1*v9ig8w*_ga*MzYyNzk2NzU0LjE3NzAzOTkwMjQ.*_ga_8JE65Q40S6*czE3NzA0NTk5OTAkbzMkZzEkdDE3NzA0NjAwMzMkajE3JGwwJGgw" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Golden Ceremony</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Dramatic portrait" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf9ea7X6wTOu-EsK9vNqINt6NLi3dQFLIyIgm5g8A6RmBINNKWL23plg1fjB3pATdiRdFimI8mAJ4OCdv_jrfe3QRHVhMOFjeittlaiV9aHOT3solRoQiPsY4NrvaD1-tbnGKtpbAPMrq2n3k6PewYAw6ykPllqBAb0Vwoz7FmjmL9PbI-1S6-518BwPWxnVMP1qWIOeNgtAq4YQf6S-T1SpCXSXyEfrecJbOqoWQGwsrYF_S_2BomgNT-rwu1RvrDhq2Pfip48Q"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Dramatic portrait"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf9ea7X6wTOu-EsK9vNqINt6NLi3dQFLIyIgm5g8A6RmBINNKWL23plg1fjB3pATdiRdFimI8mAJ4OCdv_jrfe3QRHVhMOFjeittlaiV9aHOT3solRoQiPsY4NrvaD1-tbnGKtpbAPMrq2n3k6PewYAw6ykPllqBAb0Vwoz7FmjmL9PbI-1S6-518BwPWxnVMP1qWIOeNgtAq4YQf6S-T1SpCXSXyEfrecJbOqoWQGwsrYF_S_2BomgNT-rwu1RvrDhq2Pfip48Q" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portrait</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Sarah in Shadow</h3>
                         </div>
                     </div>
                 </div>
-                
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Bride and groom embrace" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?q=80&w=1000&auto=format&fit=crop"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="wedding">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Bride and groom embrace"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?q=80&w=1000&auto=format&fit=crop" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Sweet Embrace</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Wedding reception" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://plus.unsplash.com/premium_photo-1690148812608-9942834931a1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="wedding">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Wedding reception"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://plus.unsplash.com/premium_photo-1690148812608-9942834931a1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Reception Bliss</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Romantic sunset" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1610173827043-9db50e0d8ef9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="wedding">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Romantic sunset"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1610173827043-9db50e0d8ef9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Romantic Sunset</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Vow exchange" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="wedding">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Vow exchange"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Sacred Vows</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Bride entrance" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1693336429370-db3ee173ce51?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="wedding">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Bride entrance"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1693336429370-db3ee173ce51?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Bride Entrance</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="wedding">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Family moments" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1741201864879-c5e7f81c98b0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="wedding">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Family moments"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1741201864879-c5e7f81c98b0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Wedding</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Family Moments</h3>
                         </div>
@@ -724,82 +1181,127 @@
                 </div>
 
                 <!-- Additional Portrait Items -->
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Moody portrait" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Moody portrait"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Golden Hour</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Contemplative gaze" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1603775020644-eb8decd79994?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Contemplative gaze"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1603775020644-eb8decd79994?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Deep Thoughts</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Candid smile" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Candid smile"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1000&auto=format&fit=crop" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Pure Joy</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Urban lifestyle" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1606143412458-acc5f86de897?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Urban lifestyle"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1606143412458-acc5f86de897?q=80&w=715&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Urban Spirit</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Studio elegance" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1563170446-9c3c0622d8a9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Studio elegance"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1563170446-9c3c0622d8a9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Studio Elegance</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Natural beauty" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1706212825296-b2bebf3de002?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Natural beauty"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1706212825296-b2bebf3de002?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Natural Beauty</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Street portrait" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://plus.unsplash.com/premium_photo-1661964226897-a79c0c0e7a54?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Street portrait"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://plus.unsplash.com/premium_photo-1661964226897-a79c0c0e7a54?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Street Life</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Editorial portrait" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1568707043650-eb03f2536825?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Editorial portrait"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1568707043650-eb03f2536825?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Editorial Look</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="portraits">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Artistic portrait" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1000&auto=format&fit=crop"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="portraits">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Artistic portrait"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1000&auto=format&fit=crop" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Portraits</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Artistic Expression</h3>
                         </div>
@@ -807,73 +1309,113 @@
                 </div>
 
                 <!-- Additional Fashion Items -->
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Summer collection" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://plus.unsplash.com/premium_photo-1705352059826-d95593d4b84a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="fashion">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Summer collection"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://plus.unsplash.com/premium_photo-1705352059826-d95593d4b84a?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Summer Vibes</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Winter elegance" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://plus.unsplash.com/premium_photo-1666789890472-3e89daccaa00?q=80&w=716&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="fashion">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Winter elegance"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://plus.unsplash.com/premium_photo-1666789890472-3e89daccaa00?q=80&w=716&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Winter Elegance</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Street style" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://plus.unsplash.com/premium_photo-1673757116882-5b3a789a503d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="fashion">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Street style"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://plus.unsplash.com/premium_photo-1673757116882-5b3a789a503d?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Street Style</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Luxury editorial" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1731589802956-b4693dae884b?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="fashion">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Luxury editorial"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1731589802956-b4693dae884b?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Luxury Editorial</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Evening gown" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1761599345656-5e2956917989?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="fashion">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Evening gown"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1761599345656-5e2956917989?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Evening Gown</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Casual chic" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="fashion">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Casual chic"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Casual Chic</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Athleisure" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://plus.unsplash.com/premium_photo-1768980359042-f6c1f206e374?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="fashion">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Athleisure"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://plus.unsplash.com/premium_photo-1768980359042-f6c1f206e374?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Athleisure Collection</h3>
                         </div>
                     </div>
                 </div>
-                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item" data-category="fashion">
-                    <div class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
-                        <img alt="Vintage inspired" class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105" src="https://images.unsplash.com/photo-1601597565151-70c4020dc0e1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"/>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                <div class="portfolio-item masonry-grid-item group relative break-inside-avoid hidden-item"
+                    data-category="fashion">
+                    <div
+                        class="relative overflow-hidden rounded-lg bg-surface-dark border border-white/5 transition-all duration-700 hover:border-primary/50 hover:shadow-[0_0_30px_-5px_rgba(212,175,53,0.3)]">
+                        <img alt="Vintage inspired"
+                            class="w-full h-auto object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1601597565151-70c4020dc0e1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                             <span class="text-primary text-xs font-bold tracking-widest uppercase mb-1">Fashion</span>
                             <h3 class="text-white text-lg font-medium leading-tight">Vintage Vibes</h3>
                         </div>
@@ -881,34 +1423,42 @@
                 </div>
 
             </div>
-            
+
             <div class="flex justify-center mt-12">
-                <button id="loadMoreBtn" class="hidden flex items-center gap-2 px-8 py-3 rounded-full border border-gray-700 hover:border-primary text-gray-400 hover:text-primary transition-all duration-300 text-sm font-semibold tracking-wide uppercase">
+                <button id="loadMoreBtn"
+                    class="hidden flex items-center gap-2 px-8 py-3 rounded-full border border-gray-700 hover:border-primary text-gray-400 hover:text-primary transition-all duration-300 text-sm font-semibold tracking-wide uppercase">
                     Load More <span class="material-symbols-outlined text-lg">expand_more</span>
                 </button>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="flex flex-col relative pt-12 sm:pt-24 pb-8 sm:pb-12 lg:pt-32 lg:pb-20 bg-background-dark">
+    <section id="contact"
+        class="flex flex-col relative pt-12 sm:pt-24 pb-8 sm:pb-12 lg:pt-32 lg:pb-20 bg-background-dark">
         <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none overflow-hidden hidden sm:block">
-            <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary rounded-full blur-[120px] translate-x-1/2"></div>
+            <div
+                class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary rounded-full blur-[120px] translate-x-1/2">
+            </div>
         </div>
-        
+
         <div class="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-20">
                 <div class="lg:col-span-5 flex flex-col justify-center">
-                    <span class="text-primary text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-2 sm:mb-4">Contact</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-serif font-medium text-white leading-tight mb-4 sm:mb-6">
+                    <span
+                        class="text-primary text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-2 sm:mb-4">Contact</span>
+                    <h2
+                        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl lg:text-6xl font-serif font-medium text-white leading-tight mb-4 sm:mb-6">
                         Let's Create Something <span class="italic text-primary">Beautiful</span>
                     </h2>
                     <p class="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-12 max-w-md">
-                        Ready to bring your cinematic vision to life? I'm currently available for select projects worldwide. Let's discuss your story.
+                        Ready to bring your cinematic vision to life? I'm currently available for select projects
+                        worldwide. Let's discuss your story.
                     </p>
-                    
+
                     <div class="space-y-8 mt-auto">
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
                                 <span class="material-symbols-outlined">location_on</span>
                             </div>
                             <div>
@@ -917,37 +1467,49 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                                <span class="material-symbols-outlined">mail</span>
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                <span class="material-symbols-outlined text-sm">phone</span>
                             </div>
                             <div>
-                                <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-1">Email</h3>
-                                <a class="text-lg text-white hover:text-primary transition-colors" href="mailto:hello@harshankcreates.com">hello@harshankcreates.com</a>
+                                <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-1">Phone</h3>
+                                <a href="tel:+917977651751" class="text-lg text-white">+91 7977651751</a>
                             </div>
                         </div>
-                        
+
                         <div class="pt-8 border-t border-white/10">
-                            <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6">Follow My Work</h3>
+                            <h3 class="text-sm font-bold uppercase tracking-wider text-gray-400 mb-6">Follow My Work
+                            </h3>
                             <div class="flex flex-wrap gap-3">
-                                <a href="https://instagram.com/harshank.creates" target="_blank" rel="noopener noreferrer" class="group relative w-14 h-14 rounded-lg bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
+                                <a href="https://instagram.com/harshank.creates" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="group relative w-14 h-14 rounded-lg bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
                                     <i class="fab fa-instagram text-white text-xl font-bold"></i>
-                                    <div class="absolute -inset-1 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300 -z-10"></div>
+                                    <div
+                                        class="absolute -inset-1 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300 -z-10">
+                                    </div>
                                 </a>
-                                <a href="https://pinterest.com/harshank" target="_blank" rel="noopener noreferrer" class="group relative w-14 h-14 rounded-lg bg-red-600 hover:shadow-lg hover:shadow-red-600/50 transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
+                                <a href="https://pinterest.com/harshank" target="_blank" rel="noopener noreferrer"
+                                    class="group relative w-14 h-14 rounded-lg bg-red-600 hover:shadow-lg hover:shadow-red-600/50 transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
                                     <i class="fab fa-pinterest text-white text-xl font-bold"></i>
-                                    <div class="absolute -inset-1 bg-red-600 rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300 -z-10"></div>
+                                    <div
+                                        class="absolute -inset-1 bg-red-600 rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300 -z-10">
+                                    </div>
                                 </a>
-                                <a href="https://unsplash.com/@harshank" target="_blank" rel="noopener noreferrer" class="group relative w-14 h-14 rounded-lg bg-black border border-white/20 hover:shadow-lg hover:shadow-white/50 transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
+                                <a href="https://unsplash.com/@harshank" target="_blank" rel="noopener noreferrer"
+                                    class="group relative w-14 h-14 rounded-lg bg-black border border-white/20 hover:shadow-lg hover:shadow-white/50 transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
                                     <i class="fab fa-unsplash text-white text-xl font-bold"></i>
-                                    <div class="absolute -inset-1 bg-black rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300 -z-10"></div>
+                                    <div
+                                        class="absolute -inset-1 bg-black rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300 -z-10">
+                                    </div>
                                 </a>
-                                <a href="https://wa.me/7977651751" target="_blank" rel="noopener noreferrer" class="group relative w-14 h-14 rounded-lg bg-green-500 hover:shadow-lg hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
-                                    <i class="fab fa-whatsapp text-white text-xl font-bold"></i>
-                                    <div class="absolute -inset-1 bg-green-500 rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300 -z-10"></div>
-                                </a>
-                                <a href="https://www.behance.net/harshank" target="_blank" rel="noopener noreferrer" class="group relative w-14 h-14 rounded-lg bg-blue-600 hover:shadow-lg hover:shadow-blue-600/50 transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
+
+                                <a href="https://www.behance.net/harshank" target="_blank" rel="noopener noreferrer"
+                                    class="group relative w-14 h-14 rounded-lg bg-blue-600 hover:shadow-lg hover:shadow-blue-600/50 transition-all duration-300 transform hover:scale-110 flex items-center justify-center">
                                     <i class="fab fa-behance text-white text-xl font-bold"></i>
-                                    <div class="absolute -inset-1 bg-blue-600 rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300 -z-10"></div>
+                                    <div
+                                        class="absolute -inset-1 bg-blue-600 rounded-lg opacity-0 group-hover:opacity-30 blur-md transition-opacity duration-300 -z-10">
+                                    </div>
                                 </a>
                             </div>
                         </div>
@@ -955,77 +1517,103 @@
                 </div>
 
                 <div class="lg:col-span-7 lg:pl-10">
-                    <form id="contactForm" action="https://formsubmit.co/try.mandal16@gmail.com" method="POST" class="bg-surface-dark p-8 md:p-10 rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden group">
-                        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                        
+                    <form id="contactForm" action="https://formsubmit.co/try.mandal16@gmail.com" method="POST"
+                        class="bg-surface-dark p-8 md:p-10 rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden group">
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2">
+                        </div>
+
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <label class="flex flex-col gap-2">
                                 <span class="text-sm font-medium text-gray-300">Your Name</span>
-                                <input type="text" name="name" placeholder="  John Doe" required class="w-full bg-transparent border-b border-white/20 focus:border-primary text-white placeholder-white/20 h-12 px-0 focus:ring-0 transition-colors text-lg" />
+                                <input type="text" name="name" placeholder="  John Doe" required
+                                    class="w-full bg-transparent border-b border-white/20 focus:border-primary text-white placeholder-white/20 h-12 px-0 focus:ring-0 transition-colors text-lg" />
                             </label>
                             <label class="flex flex-col gap-2">
-                                <span class="text-sm font-medium text-gray-300">Email Address</span>
-                                <input type="email" name="email" placeholder="  john@example.com" required class="w-full bg-transparent border-b border-white/20 focus:border-primary text-white placeholder-white/20 h-12 px-0 focus:ring-0 transition-colors text-lg" />
+                                <span class="text-sm font-medium text-gray-300">Mobile Number</span>
+                                <input type="tel" name="mobile" placeholder="  +91 9876543210" required
+                                    pattern="[+]?[0-9]{10,15}"
+                                    class="w-full bg-transparent border-b border-white/20 focus:border-primary text-white placeholder-white/20 h-12 px-0 focus:ring-0 transition-colors text-lg" />
                             </label>
                         </div>
-                        
+
                         <div class="mb-6">
                             <label class="flex flex-col gap-2">
                                 <span class="text-sm font-medium text-gray-300">Project Type</span>
-                                <select name="projectType" required class="w-full bg-transparent border-b border-white/20 focus:border-primary text-white h-12 px-0 focus:ring-0 transition-colors text-lg appearance-none cursor-pointer">
+                                <select name="projectType" required
+                                    class="w-full bg-transparent border-b border-white/20 focus:border-primary text-white h-12 px-0 focus:ring-0 transition-colors text-lg appearance-none cursor-pointer">
                                     <option class="bg-surface-dark" value="">&nbsp;&nbsp;Select Project Type</option>
 
-                                    <option class="bg-surface-dark" value="cinematic">&nbsp;&nbsp;Cinematic Film</option>
+                                    <option class="bg-surface-dark" value="cinematic">&nbsp;&nbsp;Cinematic Film
+                                    </option>
                                     <option class="bg-surface-dark" value="brand">&nbsp;&nbsp;Brand Campaign</option>
-                                    <option class="bg-surface-dark" value="portrait">&nbsp;&nbsp;Portrait Photography</option>
-                                    <option class="bg-surface-dark" value="wedding">&nbsp;&nbsp;Wedding Photo Shoot</option>
-                                    <option class="bg-surface-dark" value="fashion">&nbsp;&nbsp;Fashion Photography</option>
+                                    <option class="bg-surface-dark" value="portrait">&nbsp;&nbsp;Portrait Photography
+                                    </option>
+                                    <option class="bg-surface-dark" value="wedding">&nbsp;&nbsp;Wedding Photo Shoot
+                                    </option>
+                                    <option class="bg-surface-dark" value="fashion">&nbsp;&nbsp;Fashion Photography
+                                    </option>
                                     <option class="bg-surface-dark" value="other">&nbsp;&nbsp;Other</option>
                                 </select>
                             </label>
                         </div>
 
 
-                        
+
                         <div class="mb-6">
                             <label class="flex flex-col gap-2">
-                                <span class="text-sm font-medium text-gray-300">Budget Range <span class="text-primary">*</span></span>
+                                <span class="text-sm font-medium text-gray-300">Budget Range <span
+                                        class="text-primary">*</span></span>
                                 <div class="space-y-3 pt-2">
                                     <div class="flex items-center gap-3">
-                                        <input type="radio" id="budget1" name="budget" value="starter" required class="w-4 h-4 accent-primary cursor-pointer" />
-                                        <label for="budget1" class="text-gray-300 cursor-pointer flex-1">Starter - ₹25,000 - ₹50,000</label>
+                                        <input type="radio" id="budget1" name="budget" value="starter" required
+                                            class="w-4 h-4 accent-primary cursor-pointer" />
+                                        <label for="budget1" class="text-gray-300 cursor-pointer flex-1">Starter -
+                                            ₹25,000 - ₹50,000</label>
                                     </div>
                                     <div class="flex items-center gap-3">
-                                        <input type="radio" id="budget2" name="budget" value="professional" class="w-4 h-4 accent-primary cursor-pointer" />
-                                        <label for="budget2" class="text-gray-300 cursor-pointer flex-1">Professional - ₹50,000 - ₹1,00,000</label>
+                                        <input type="radio" id="budget2" name="budget" value="professional"
+                                            class="w-4 h-4 accent-primary cursor-pointer" />
+                                        <label for="budget2" class="text-gray-300 cursor-pointer flex-1">Professional -
+                                            ₹50,000 - ₹1,00,000</label>
                                     </div>
                                     <div class="flex items-center gap-3">
-                                        <input type="radio" id="budget3" name="budget" value="premium" class="w-4 h-4 accent-primary cursor-pointer" />
-                                        <label for="budget3" class="text-gray-300 cursor-pointer flex-1">Premium - ₹1,00,000+</label>
+                                        <input type="radio" id="budget3" name="budget" value="premium"
+                                            class="w-4 h-4 accent-primary cursor-pointer" />
+                                        <label for="budget3" class="text-gray-300 cursor-pointer flex-1">Premium -
+                                            ₹1,00,000+</label>
                                     </div>
                                     <div class="flex items-center gap-3">
-                                        <input type="radio" id="budget4" name="budget" value="custom" class="w-4 h-4 accent-primary cursor-pointer" />
-                                        <label for="budget4" class="text-gray-300 cursor-pointer flex-1">Custom Budget</label>
+                                        <input type="radio" id="budget4" name="budget" value="custom"
+                                            class="w-4 h-4 accent-primary cursor-pointer" />
+                                        <label for="budget4" class="text-gray-300 cursor-pointer flex-1">Custom
+                                            Budget</label>
                                     </div>
                                 </div>
                             </label>
                         </div>
-                        
+
                         <div class="mb-10">
                             <label class="flex flex-col gap-2">
-                                <span class="text-sm font-medium text-gray-300">Project Details <span class="text-gray-500">(Optional)</span></span>
-                                <textarea name="message" placeholder="Tell me about your vision, timeline, and goals..." class="w-full bg-transparent border border-white/20 focus:border-primary text-white placeholder-white/20 min-h-[120px] p-4 rounded-lg focus:ring-0 transition-colors text-base resize-none mt-2"></textarea>
+                                <span class="text-sm font-medium text-gray-300">Project Details <span
+                                        class="text-gray-500">(Optional)</span></span>
+                                <textarea name="message" placeholder="Tell me about your vision, timeline, and goals..."
+                                    class="w-full bg-transparent border border-white/20 focus:border-primary text-white placeholder-white/20 min-h-[120px] p-4 rounded-lg focus:ring-0 transition-colors text-base resize-none mt-2"></textarea>
                             </label>
                         </div>
-                        
+
                         <div id="formMessage" class="mb-6 p-4 rounded-lg hidden text-center font-semibold"></div>
-                        
+
                         <div class="flex items-center justify-end">
-                            <button id="submitBtn" type="submit" class="group relative px-8 py-4 bg-primary text-background-dark text-base font-bold rounded-xl overflow-hidden shadow-[0_0_20px_rgba(212,175,53,0.3)] hover:shadow-[0_0_30px_rgba(212,175,53,0.5)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <button id="submitBtn" type="submit"
+                                class="group relative px-8 py-4 bg-primary text-background-dark text-base font-bold rounded-xl overflow-hidden shadow-[0_0_20px_rgba(212,175,53,0.3)] hover:shadow-[0_0_30px_rgba(212,175,53,0.5)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
                                 <span class="relative z-10 flex items-center gap-2">
-                                    <span id="submitText">Book Your Shoot</span> <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+                                    <span id="submitText">Book Your Shoot</span> <span
+                                        class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
                                 </span>
-                                <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+                                <div
+                                    class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out">
+                                </div>
                             </button>
                         </div>
                     </form>
@@ -1034,115 +1622,152 @@
         </div>
     </section>
 
-    <footer class="relative bg-gradient-to-b from-background-dark via-[#0a0a08] to-[#050504] border-t border-white/5 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 overflow-hidden">
+    <footer
+        class="relative bg-gradient-to-b from-background-dark via-[#0a0a08] to-[#050504] border-t border-white/5 pt-16 sm:pt-24 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 overflow-hidden">
         <!-- Decorative gradient elements -->
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 opacity-20"></div>
-        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl translate-y-1/2 opacity-10"></div>
-        
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 opacity-20">
+        </div>
+        <div
+            class="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/3 rounded-full blur-3xl translate-y-1/2 opacity-10">
+        </div>
+
         <div class="container mx-auto px-4 sm:px-6 md:px-12 relative z-10">
             <!-- Top Section - Logo & Contact CTA -->
             <div class="mb-12 sm:mb-16 lg:mb-20 text-center">
                 <div class="inline-flex items-center justify-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center">
                         <span class="text-background-dark font-bold text-lg">HC</span>
                     </div>
-                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">Harshank Creates</h2>
+                    <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">Harshank Creates
+                    </h2>
                 </div>
-                <p class="text-primary text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-2">Cinematic Photography & Storytelling</p>
-                <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-6 leading-relaxed">Transforming moments into timeless memories. Available for worldwide projects including weddings, portraits, fashion, and commercial work.</p>
-                
+                <p class="text-primary text-xs sm:text-sm font-bold tracking-[0.2em] uppercase mb-2">Cinematic
+                    Photography & Storytelling</p>
+                <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto mb-6 leading-relaxed">Transforming
+                    moments into timeless memories. Available for worldwide projects including weddings, portraits,
+                    fashion, and commercial work.</p>
+
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                    <a href="#contact" class="group relative px-6 sm:px-8 py-2.5 sm:py-3 bg-primary text-background-dark text-xs sm:text-sm font-bold rounded-full overflow-hidden hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105">
+                    <a href="#contact"
+                        class="group relative px-6 sm:px-8 py-2.5 sm:py-3 bg-primary text-background-dark text-xs sm:text-sm font-bold rounded-full overflow-hidden hover:shadow-lg hover:shadow-primary/50 transition-all duration-300 transform hover:scale-105">
                         <span class="relative z-10 flex items-center gap-2">
                             Get in Touch
-                            <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                            <span
+                                class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
                         </span>
-                        <div class="absolute inset-0 bg-white/20 -translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                        <div
+                            class="absolute inset-0 bg-white/20 -translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        </div>
                     </a>
-                    <a href="https://wa.me/7977651751" target="_blank" rel="noopener noreferrer" class="px-6 sm:px-8 py-2.5 sm:py-3 border border-primary/50 text-primary text-xs sm:text-sm font-bold rounded-full hover:bg-primary/10 transition-all duration-300">
+                    <a href="https://wa.me/7977651751" target="_blank" rel="noopener noreferrer"
+                        class="px-6 sm:px-8 py-2.5 sm:py-3 border border-primary/50 text-primary text-xs sm:text-sm font-bold rounded-full hover:bg-primary/10 transition-all duration-300">
                         WhatsApp
                     </a>
                 </div>
             </div>
-            
-            <div class="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent mb-12 sm:mb-16"></div>
-            
+
+            <div class="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent mb-12 sm:mb-16">
+            </div>
+
             <!-- Middle Section - Links Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-12 sm:mb-16 lg:mb-20">
                 <!-- Navigation -->
                 <div>
                     <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-6">Navigation</h3>
                     <nav class="space-y-3">
-                        <a href="#hero" class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                        <a href="#hero"
+                            class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                             Home
                         </a>
-                        <a href="#about" class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                        <a href="#about"
+                            class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                             About
                         </a>
-                        <a href="#services" class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                        <a href="#services"
+                            class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                             Services
                         </a>
-                        <a href="#portfolio" class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                        <a href="#portfolio"
+                            class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                             Portfolio
                         </a>
-                        <a href="#contact" class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                        <a href="#contact"
+                            class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                             Contact
                         </a>
                     </nav>
                 </div>
-                
+
                 <!-- Services -->
                 <div>
                     <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-6">Services</h3>
                     <nav class="space-y-3">
-                        <a href="#services" class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                        <a href="#services"
+                            class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                             Wedding Photography
                         </a>
-                        <a href="#services" class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                        <a href="#services"
+                            class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                             Portrait Sessions
                         </a>
-                        <a href="#services" class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                        <a href="#services"
+                            class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                             Fashion Editorial
                         </a>
-                        <a href="#services" class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
-                            <span class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+                        <a href="#services"
+                            class="block text-gray-400 hover:text-primary text-sm transition-colors duration-300 flex items-center gap-2 group">
+                            <span
+                                class="material-symbols-outlined text-sm opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
                             Commercial Work
                         </a>
                     </nav>
                 </div>
-                
+
                 <!-- Connect -->
                 <div>
                     <h3 class="text-white font-bold text-sm uppercase tracking-wider mb-6">Connect</h3>
                     <div class="space-y-4">
                         <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
-                                <span class="material-symbols-outlined text-sm">mail</span>
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                                <span class="material-symbols-outlined text-sm">phone</span>
                             </div>
-                            <a href="mailto:hello@harshankcreates.com" class="text-gray-400 hover:text-primary text-sm transition-colors">hello@harshankcreates.com</a>
+                            <a href="tel:+917977651751"
+                                class="text-gray-400 hover:text-primary text-sm transition-colors">+91 7977651751</a>
                         </div>
                         <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                                 <span class="material-symbols-outlined text-sm">location_on</span>
                             </div>
                             <p class="text-gray-400 text-sm">Mumbai, India</p>
                         </div>
                         <div class="flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                                 <span class="material-symbols-outlined text-sm">schedule</span>
                             </div>
                             <p class="text-gray-400 text-sm">24/7 Available</p>
                         </div>
                     </div>
-                    
+
                     <!-- Social Icons Section -->
                     <!-- <div class="mt-6 pt-6 border-t border-white/10">
                         <p class="text-primary text-xs font-bold tracking-wider uppercase mb-4">Follow</p>
@@ -1163,69 +1788,104 @@
                     </div> -->
                 </div>
             </div>
-            
+
             <div class="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-8 sm:mb-10"></div>
-            
+
             <!-- Bottom Section - Copyright -->
             <div class="flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
                 <div class="text-gray-500 text-xs sm:text-sm">
-                    <p>&copy; 2021-2026 <span class="text-primary font-semibold">Harshank Creates</span>. All Rights Reserved.</p>
-                    <p class="mt-1 text-gray-600">Crafted with <span class="text-primary">&nbsp;❤&nbsp;</span>- By Dhruv Mandal</p>
+                    <p>&copy; 2021-2026 <span class="text-primary font-semibold">Harshank Creates</span>. All Rights
+                        Reserved.</p>
+                    <p class="mt-1 text-gray-600">Crafted with <span class="text-primary">&nbsp;❤&nbsp;</span>- By Dhruv
+                        Mandal</p>
                 </div>
                 <div class="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
-                    <a href="#" class="text-gray-500 hover:text-primary text-xs sm:text-sm transition-colors duration-300">Privacy Policy</a>
+                    <a href="#"
+                        class="text-gray-500 hover:text-primary text-xs sm:text-sm transition-colors duration-300">Privacy
+                        Policy</a>
                     <span class="text-white/10">•</span>
-                    <a href="#" class="text-gray-500 hover:text-primary text-xs sm:text-sm transition-colors duration-300">Terms of Service</a>
+                    <a href="#"
+                        class="text-gray-500 hover:text-primary text-xs sm:text-sm transition-colors duration-300">Terms
+                        of Service</a>
                     <span class="text-white/10">•</span>
-                    <a href="#contact" class="text-gray-500 hover:text-primary text-xs sm:text-sm transition-colors duration-300">Contact Us</a>
+                    <a href="#contact"
+                        class="text-gray-500 hover:text-primary text-xs sm:text-sm transition-colors duration-300">Contact
+                        Us</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <div class="hidden lg:flex fixed right-8 bottom-0 top-0 z-40 flex-col justify-center items-center gap-8 text-white pointer-events-none">
+    <!-- Premium Left-to-Right Social Sidebar (Hidden on Mobile) -->
+    <div
+        class="hidden lg:flex fixed right-8 bottom-0 top-0 z-40 flex-col justify-center items-center gap-8 text-white pointer-events-none">
         <div class="w-[1px] h-32 bg-gradient-to-b from-transparent via-primary to-transparent"></div>
-        
-        <div class="space-y-5 flex flex-col items-center">
-            <a href="https://instagram.com/harshank.creates" target="_blank" rel="noopener noreferrer" class="pointer-events-auto group relative flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-pink-500/60 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1">
+
+        <div class="space-y-6 flex flex-col items-center">
+            <!-- Instagram -->
+            <a href="https://instagram.com/harshank.creates" target="_blank" rel="noopener noreferrer"
+                class="social-link pointer-events-auto group">
+                <div
+                    class="w-14 h-14 rounded-full bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-pink-500/60 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1">
                     <i class="fab fa-instagram text-white text-xl font-bold"></i>
                 </div>
-                <div class="absolute -inset-0.5 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300 -z-10"></div>
+                <div
+                    class="absolute -inset-0.5 bg-gradient-to-br from-pink-500 via-red-500 to-yellow-500 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300 -z-10">
+                </div>
+                <div class="social-link-tooltip">Instagram</div>
             </a>
-            
-            <a href="https://pinterest.com/harshank" target="_blank" rel="noopener noreferrer" class="pointer-events-auto group relative flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-red-600/60 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1">
+
+            <!-- Pinterest -->
+            <a href="https://pinterest.com/harshank" target="_blank" rel="noopener noreferrer"
+                class="social-link pointer-events-auto group">
+                <div
+                    class="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-red-600/60 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1">
                     <i class="fab fa-pinterest text-white text-xl font-bold"></i>
                 </div>
-                <div class="absolute -inset-0.5 bg-red-600 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300 -z-10"></div>
+                <div
+                    class="absolute -inset-0.5 bg-red-600 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300 -z-10">
+                </div>
+                <div class="social-link-tooltip">Pinterest</div>
             </a>
-            
-            <a href="https://unsplash.com/@harshank" target="_blank" rel="noopener noreferrer" class="pointer-events-auto group relative flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-black border border-white/30 flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-white/40 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1">
+
+            <!-- Unsplash -->
+            <a href="https://unsplash.com/@harshank" target="_blank" rel="noopener noreferrer"
+                class="social-link pointer-events-auto group">
+                <div
+                    class="w-14 h-14 rounded-full bg-black border border-white/30 flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-white/40 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1">
                     <i class="fab fa-unsplash text-white text-xl font-bold"></i>
                 </div>
-                <div class="absolute -inset-0.5 bg-white/20 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300 -z-10"></div>
-            </a>
-            
-            <a href="https://wa.me/7977651751" target="_blank" rel="noopener noreferrer" class="pointer-events-auto group relative flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-green-500/60 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1">
-                    <i class="fab fa-whatsapp text-white text-xl font-bold"></i>
+                <div
+                    class="absolute -inset-0.5 bg-white/20 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300 -z-10">
                 </div>
-                <div class="absolute -inset-0.5 bg-green-500 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300 -z-10"></div>
+                <div class="social-link-tooltip">Unsplash</div>
             </a>
-            
-            <a href="https://www.behance.net/harshank" target="_blank" rel="noopener noreferrer" class="pointer-events-auto group relative flex items-center justify-center">
-                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-blue-600/60 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1">
+
+            <!-- Behance -->
+            <a href="https://www.behance.net/harshank" target="_blank" rel="noopener noreferrer"
+                class="social-link pointer-events-auto group">
+                <div
+                    class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-lg hover:shadow-2xl hover:shadow-blue-600/60 transition-all duration-300 transform hover:scale-125 hover:-translate-y-1">
                     <i class="fab fa-behance text-white text-xl font-bold"></i>
                 </div>
-                <div class="absolute -inset-0.5 bg-blue-600 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300 -z-10"></div>
+                <div
+                    class="absolute -inset-0.5 bg-blue-600 rounded-full opacity-0 group-hover:opacity-40 blur-md transition-opacity duration-300 -z-10">
+                </div>
+                <div class="social-link-tooltip">Behance</div>
             </a>
         </div>
-        
+
         <div class="w-[1px] h-32 bg-gradient-to-t from-transparent via-primary to-transparent"></div>
     </div>
-    
+
+    <!-- Premium Sticky WhatsApp Floating Button -->
+    <div class="whatsapp-float-btn">
+        <a href="https://wa.me/7977651751" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp"
+            aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
     <script>
         // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
@@ -1233,7 +1893,7 @@
         const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
 
         if (menuToggle && mobileMenu) {
-            menuToggle.addEventListener('click', function() {
+            menuToggle.addEventListener('click', function () {
                 mobileMenu.classList.toggle('active');
                 this.classList.toggle('active');
                 document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
@@ -1241,7 +1901,7 @@
 
             // Close menu when clicking on menu items
             mobileMenuItems.forEach(item => {
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function () {
                     mobileMenu.classList.remove('active');
                     menuToggle.classList.remove('active');
                     document.body.style.overflow = '';
@@ -1249,7 +1909,7 @@
             });
 
             // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
+            document.addEventListener('click', function (event) {
                 if (!event.target.closest('#menuToggle') && !event.target.closest('#mobileMenu')) {
                     mobileMenu.classList.remove('active');
                     menuToggle.classList.remove('active');
@@ -1260,7 +1920,7 @@
 
         // Hero Section - Image Carousel
         const heroImages = [
-            'https://plus.unsplash.com/premium_photo-1729621685969-5b03b3aaeb5a?q=80&w=1163&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 
+            'https://www.yourtango.com/sites/default/files/image_blog/2024-11/marriage-lasts-simple-shift-wedding-vows.png',
             'https://images.pexels.com/photos/1751680/pexels-photo-1751680.jpeg?_gl=1*wqh069*_ga*MzYyNzk2NzU0LjE3NzAzOTkwMjQ.*_ga_8JE65Q40S6*czE3NzA0NTc1MDEkbzIkZzEkdDE3NzA0NTc2MjckajU5JGwwJGgw',
             'https://images.pexels.com/photos/11388580/pexels-photo-11388580.jpeg?_gl=1*4bv6vn*_ga*MzYyNzk2NzU0LjE3NzAzOTkwMjQ.*_ga_8JE65Q40S6*czE3NzAzOTkwMjMkbzEkZzEkdDE3NzA0MDA5ODAkajM0JGwwJGgwhttps://images.pexels.com/photos/11388580/pexels-photo-11388580.jpeg?_gl=1*4bv6vn*_ga*MzYyNzk2NzU0LjE3NzAzOTkwMjQ.*_ga_8JE65Q40S6*czE3NzAzOTkwMjMkbzEkZzEkdDE3NzA0MDA5ODAkajM0JGwwJGgw'
         ];
@@ -1270,10 +1930,10 @@
         function changeHeroImage() {
             // Smooth brightness transition with dissolve effect
             heroCarousel.style.filter = 'brightness(0.4)';
-            
+
             setTimeout(() => {
                 currentImageIndex = (currentImageIndex + 1) % heroImages.length;
-                heroCarousel.style.backgroundImage = `url("${heroImages[currentImageIndex]}")` ;
+                heroCarousel.style.backgroundImage = `url("${heroImages[currentImageIndex]}")`;
                 // Restore brightness
                 heroCarousel.style.filter = 'brightness(1)';
             }, 400);
@@ -1284,7 +1944,7 @@
         setInterval(changeHeroImage, 4000);
 
         // Scroll Button Functionality
-        document.getElementById('scrollBtn').addEventListener('click', function() {
+        document.getElementById('scrollBtn').addEventListener('click', function () {
             const aboutSection = document.getElementById('about');
             if (aboutSection) {
                 aboutSection.scrollIntoView({ behavior: 'smooth' });
@@ -1294,12 +1954,12 @@
         // Countdown Animation for About Section Stats
         function animateCountdown() {
             const countElements = document.querySelectorAll('.countdown');
-            
+
             const observerOptions = {
                 threshold: 0.5
             };
-            
-            const observer = new IntersectionObserver(function(entries) {
+
+            const observer = new IntersectionObserver(function (entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
                         const target = parseInt(entry.target.getAttribute('data-target'));
@@ -1307,7 +1967,7 @@
                         const increment = target / 30; // Divide by number of steps
                         const duration = 1500; // Duration in milliseconds
                         const stepDuration = duration / 30;
-                        
+
                         const counter = setInterval(() => {
                             current += increment;
                             if (current >= target) {
@@ -1321,7 +1981,7 @@
                     }
                 });
             }, observerOptions);
-            
+
             countElements.forEach(el => observer.observe(el));
         }
 
@@ -1339,7 +1999,7 @@
             redirectInput.value = window.location.href + '#contact';
             contactForm.appendChild(redirectInput);
 
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', function (e) {
                 // Collect budget selection
                 const budgetInputs = document.querySelectorAll('input[name="budget"]');
                 let selectedBudget = '';
@@ -1366,27 +2026,27 @@
         }
 
         // Portfolio filter functionality
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             animateCountdown();
-            
+
             const filterButtons = document.querySelectorAll('.portfolio-filter');
             const portfolioItems = document.querySelectorAll('.portfolio-item');
             const loadMoreBtn = document.getElementById('loadMoreBtn');
             let currentFilter = 'all';
             const INITIAL_ITEMS_COUNT = 12; // Show 3 rows (4 items per row)
-            
+
             function countVisibleItems(filter) {
                 return Array.from(portfolioItems).filter(item => {
                     const itemCategory = item.getAttribute('data-category');
                     return filter === 'all' || itemCategory === filter;
                 }).length;
             }
-            
+
             function showInitialItems() {
                 let visibleCount = 0;
                 portfolioItems.forEach(item => {
                     const itemCategory = item.getAttribute('data-category');
-                    
+
                     if (currentFilter === 'all') {
                         // For "All" filter, show only first 12 items
                         if (visibleCount < INITIAL_ITEMS_COUNT) {
@@ -1407,37 +2067,104 @@
                     }
                 });
             }
-            
+
             function updateLoadMoreButton() {
                 loadMoreBtn.style.display = 'none'; // Hide load more button for now
             }
-            
+
             filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     currentFilter = this.getAttribute('data-filter');
-                    
+
                     // Update active button
                     filterButtons.forEach(btn => {
                         btn.classList.remove('text-primary', 'font-semibold');
                         btn.classList.add('text-gray-400', 'font-medium');
                         btn.querySelector('span').style.width = '0';
                     });
-                    
+
                     this.classList.remove('text-gray-400', 'font-medium');
                     this.classList.add('text-primary', 'font-semibold');
                     this.querySelector('span').style.width = '100%';
-                    
+
                     // Show items based on filter
                     showInitialItems();
                     updateLoadMoreButton();
                 });
             });
-            
+
             // Initialize with "All" filter showing first 12 items
             showInitialItems();
             updateLoadMoreButton();
         });
     </script>
 
+    <script>
+        // Portfolio Image Lightbox Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Create lightbox elements
+            const lightbox = document.createElement('div');
+            lightbox.className = 'portfolio-lightbox';
+            lightbox.innerHTML = `
+                <div class="lightbox-close"></div>
+                <div class="lightbox-content">
+                    <img src="" alt="Enlarged view">
+                </div>
+            `;
+            document.body.appendChild(lightbox);
+
+            const lightboxImg = lightbox.querySelector('.lightbox-content img');
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+
+            // Add zoom indicators to all portfolio items
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            portfolioItems.forEach(item => {
+                // Check if zoom indicator already exists
+                if (!item.querySelector('.zoom-indicator')) {
+                    const zoomIndicator = document.createElement('div');
+                    zoomIndicator.className = 'zoom-indicator';
+                    zoomIndicator.innerHTML = '<i class="fas fa-search-plus"></i>';
+                    const imageContainer = item.querySelector('div');
+                    if (imageContainer) {
+                        imageContainer.appendChild(zoomIndicator);
+                    }
+                }
+
+                // Add click event to enlarge image
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const img = this.querySelector('img');
+                    if (img) {
+                        lightboxImg.src = img.src;
+                        lightboxImg.alt = img.alt;
+                        setTimeout(() => lightbox.classList.add('active'), 10);
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            // Close lightbox on click
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox || e.target === closeBtn || e.target.parentElement === closeBtn) {
+                    lightbox.classList.remove('active');
+                    setTimeout(() => {
+                        document.body.style.overflow = '';
+                    }, 400);
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    setTimeout(() => {
+                        document.body.style.overflow = '';
+                    }, 400);
+                }
+            });
+        });
+    </script>
+
 </body>
+
 </html>
